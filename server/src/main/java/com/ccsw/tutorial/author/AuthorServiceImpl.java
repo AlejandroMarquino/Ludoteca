@@ -24,6 +24,15 @@ public class AuthorServiceImpl implements AuthorService {
      * {@inheritDoc}
      */
     @Override
+    public Author get(Long id) {
+
+        return this.authorRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Page<Author> findPage(AuthorSearchDto dto) {
 
         return this.authorRepository.findAll(dto.getPageable());
@@ -37,7 +46,7 @@ public class AuthorServiceImpl implements AuthorService {
 
         Author author = null;
         if (id != null)
-            author = this.authorRepository.findById(id).orElse(null);
+            author = this.get(id);
         else
             author = new Author();
 

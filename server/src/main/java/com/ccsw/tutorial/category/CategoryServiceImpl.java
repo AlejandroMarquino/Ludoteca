@@ -42,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (id == null)
             categoria = new Category();
         else
-            categoria = this.categoryRepository.findById(id).orElse(null);
+            categoria = this.get(id);
 
         categoria.setName(dto.getName());
 

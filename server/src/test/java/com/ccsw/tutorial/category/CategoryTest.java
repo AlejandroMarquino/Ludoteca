@@ -2,6 +2,7 @@ package com.ccsw.tutorial.category;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -20,11 +21,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.ccsw.tutorial.category.model.Category;
 import com.ccsw.tutorial.category.model.CategoryDto;
 
-// @author AMF
-
 @ExtendWith(MockitoExtension.class)
 public class CategoryTest {
 
+    public static final Long EXISTS_CATEGORY_ID = 1L;
+    public static final Long NOT_EXISTS_CATEGORY_ID = 0L;
     public static final String CATEGORY_NAME = "CAT1";
 
     @Mock
@@ -32,6 +33,29 @@ public class CategoryTest {
 
     @InjectMocks
     private CategoryServiceImpl categoryService;
+
+    @Test
+    public void getExistsCategoryIdShouldReturnCategory() {
+
+        Category category = mock(Category.class);
+        when(category.getId()).thenReturn(EXISTS_CATEGORY_ID);
+        when(categoryRepository.findById(EXISTS_CATEGORY_ID)).thenReturn(Optional.of(category));
+
+        Category categoryResponse = categoryService.get(EXISTS_CATEGORY_ID);
+
+        assertNotNull(categoryResponse);
+        assertEquals(EXISTS_CATEGORY_ID, category.getId());
+    }
+
+    @Test
+    public void getNotExistsCategoryIdShouldReturnNull() {
+
+        when(categoryRepository.findById(NOT_EXISTS_CATEGORY_ID)).thenReturn(Optional.empty());
+
+        Category category = categoryService.get(NOT_EXISTS_CATEGORY_ID);
+
+        assertNull(category);
+    }
 
     @Test
     public void findAllShouldReturnAllCategories() {
@@ -61,8 +85,6 @@ public class CategoryTest {
 
         assertEquals(CATEGORY_NAME, category.getValue().getName());
     }
-
-    public static final Long EXISTS_CATEGORY_ID = 1L;
 
     @Test
     public void saveExistsCategoryIdShouldUpdate() {
