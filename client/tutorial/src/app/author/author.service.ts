@@ -4,6 +4,7 @@ import { Pageable } from '../core/model/page/Pageable';
 import { Author } from './model/Author';
 import { AuthorPage } from './model/AuthorPage';
 import { HttpClient } from '@angular/common/http';
+import { AUTHOR_DATA_LIST } from './model/mock-author-list';
 
 
 @Injectable({
@@ -28,4 +29,8 @@ export class AuthorService {
     deleteAuthor(idAuthor : number): Observable<void> {
         return this.http.delete<void>('http://localhost:8080/author/'+idAuthor)
     }    
+
+    getAllAuthors(): Observable<Author[]> {
+        return of(AUTHOR_DATA_LIST);
+    }
 }
