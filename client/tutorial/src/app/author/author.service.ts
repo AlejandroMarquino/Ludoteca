@@ -6,7 +6,6 @@ import { AuthorPage } from './model/AuthorPage';
 import { HttpClient } from '@angular/common/http';
 import { AUTHOR_DATA_LIST } from './model/mock-author-list';
 
-
 @Injectable({
     providedIn: 'root'
 })
