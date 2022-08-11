@@ -7,3 +7,4 @@ export const AUTHOR_DATA_LIST : Author[] = [
     { id: 4, name: 'Gil Hova', nationality: 'Estados Unidos'},
     { id: 5, name: 'Kelly Adams', nationality: 'Estados Unidos' },
 ]    
+

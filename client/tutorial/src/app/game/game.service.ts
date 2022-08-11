@@ -44,5 +44,4 @@ export class GameService {
         if (params == '') return url;
         else return url + '?'+params;
     }
-
 }
