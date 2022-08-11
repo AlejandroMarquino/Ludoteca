@@ -11,22 +11,18 @@ import com.ccsw.tutorial.author.model.AuthorSearchDto;
 public interface AuthorService {
 
     // Recupera un dato a través de su ID - implementado para el TEST
-
     Author get(Long id);
 
     // Método para recuperar un listado paginado de {@link
     // com.ccsw.tutorial.author.model.Author}
     // @param dto
     // @return
-
     Page<Author> findPage(AuthorSearchDto dto);
 
     // Método para crear o actualizar una Author @param dto @return
-
     void save(Long id, AuthorDto data);
 
     // método para eliminar un Author @param dto @return
-
     void delete(Long id);
 
 }
