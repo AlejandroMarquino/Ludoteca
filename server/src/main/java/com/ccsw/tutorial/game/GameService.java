@@ -9,6 +9,8 @@ import com.ccsw.tutorial.game.model.GameDto;
 
 public interface GameService {
 
+    Game get(Long id);
+
     // Recupera los juegos filtrando opcionalmente por título y/o categoría @param
     // title @param idCategory
     // @return

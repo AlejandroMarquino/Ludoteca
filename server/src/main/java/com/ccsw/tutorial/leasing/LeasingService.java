@@ -20,11 +20,11 @@ public interface LeasingService {
 
     // Método para listar los juegos que están actualmente prestados entre fechas
     // determinadas.
-    List<Leasing> findLeasingGame(Long game_id, Date prestamo_date, Date end_date);
+    List<Leasing> findLeasingGame(Long game_id, Date leasing_date, Date end_date);
 
     // Método para listar los clientes que tienen actualmente juegos prestados entre
     // fechas determinadas.
-    List<Leasing> findCustomerWithLeasing(Long customer_id, Date loan_date, Date end_date);
+    List<Leasing> findCustomerWithLeasing(Long customer_id, Date leasing_date, Date end_date);
 
     // Método para crear o actualizar un préstamo.
     int save(Long id, LeasingDto data);

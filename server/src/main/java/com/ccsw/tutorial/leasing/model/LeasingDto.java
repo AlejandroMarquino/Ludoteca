@@ -2,6 +2,8 @@ package com.ccsw.tutorial.leasing.model;
 
 import java.sql.Date;
 
+import org.springframework.data.domain.Pageable;
+
 import com.ccsw.tutorial.customer.model.CustomerDto;
 import com.ccsw.tutorial.game.model.GameDto;
 
@@ -49,12 +51,12 @@ public class LeasingDto {
     }
 
     // @retun leasing_date
-    public Date getLoan_date() {
+    public Date getLeasing_date() {
         return leasing_date;
     }
 
     // @param leasing_date new value of {@link #getLoan_date}
-    public void setLoan_date(Date loan_date) {
+    public void setLeasing_date(Date loan_date) {
         this.leasing_date = loan_date;
     }
 
@@ -66,6 +68,20 @@ public class LeasingDto {
     // @param end_date new value of {@link #getEnd_date}
     public void setEnd_date(Date end_date) {
         this.end_date = end_date;
+    }
+
+    private Pageable pageable;
+
+    // @return pageable
+
+    public Pageable getPageable() {
+        return this.pageable;
+    }
+
+    // @param pageable new vvalue of {@link #getPageable}
+
+    public void setPageable(Pageable pageable) {
+        this.pageable = pageable;
     }
 
 }
