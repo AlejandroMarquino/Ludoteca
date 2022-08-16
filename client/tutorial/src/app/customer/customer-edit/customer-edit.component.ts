@@ -1,0 +1,41 @@
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CustomersService } from '../customer.service';
+import { Customer } from '../model/Customer';
+
+@Component({
+    selector: 'app-customers-edit',
+    templateUrl: './customers-edit.component.html',
+    styleUrls: ['./customers-edit.component.scss']
+})
+
+export class CustomerEditComponent implements OnInit {
+
+    customer: Customer;
+  
+    constructor(
+        public dialogRef: MatDialogRef<CustomerEditComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        private customersService: CustomersService
+    ) { }
+
+    ngOnInit(): void {
+        if (this.data.customer != null) {
+            this.customer = Object.assign({}, this.data.customer);
+        }
+        else {
+            this.customer = new Customer();
+        }
+    }
+
+    onSave() {
+        this.customersService.saveCustomer(this.customer).subscribe(result => {
+            this.dialogRef.close();
+        });
+    }
+
+    onClose() {
+        this.dialogRef.close();
+    }
+
+}
