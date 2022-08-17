@@ -8,6 +8,9 @@ import { CoreModule } from './core/core.module';
 import { CategoryModule } from './category/category.module';
 import { AuthorModule } from './author/author.module';
 import { GameModule } from './game/game.module';
+import { CustomersModule } from './customer/customer.module';
+import { LeasingModule } from './leasing/leasing.module';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { GameModule } from './game/game.module';
     CategoryModule,
     AuthorModule,
     GameModule,
+    CustomersModule,
+    LeasingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

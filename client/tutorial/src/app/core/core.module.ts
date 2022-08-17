@@ -15,8 +15,7 @@ import { DialogMessageComponent } from './dialog-message/dialog-message.componen
   declarations: [
     HeaderComponent,
     DialogConfirmationComponent,
-    DialogMessageComponent
-    
+    DialogMessageComponent,
   ],
   imports: [
     CommonModule,

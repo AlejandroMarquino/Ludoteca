@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CustomersService } from '../customer.service';
+import { CustomerService } from '../customer.service';
 import { Customer } from '../model/Customer';
 
 @Component({
-    selector: 'app-customers-edit',
-    templateUrl: './customers-edit.component.html',
-    styleUrls: ['./customers-edit.component.scss']
+    selector: 'app-customer-edit',
+    templateUrl: './customer-edit.component.html',
+    styleUrls: ['./customer-edit.component.scss']
 })
 
 export class CustomerEditComponent implements OnInit {
@@ -16,7 +16,7 @@ export class CustomerEditComponent implements OnInit {
     constructor(
         public dialogRef: MatDialogRef<CustomerEditComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
-        private customersService: CustomersService
+        private customerService: CustomerService
     ) { }
 
     ngOnInit(): void {
@@ -29,7 +29,7 @@ export class CustomerEditComponent implements OnInit {
     }
 
     onSave() {
-        this.customersService.saveCustomer(this.customer).subscribe(result => {
+        this.customerService.saveCustomer(this.customer).subscribe(result => {
             this.dialogRef.close();
         });
     }

@@ -25,7 +25,7 @@ export class LeasingListComponent implements OnInit {
     pageSize: number = 5;
     totalElements: number = 0;
 
-    customers : Customer[];
+    customer : Customer[];
     games : Game[];
     filterCustomer: Customer;
     filterGame: Game;
@@ -45,7 +45,7 @@ export class LeasingListComponent implements OnInit {
     ngOnInit(): void {
 
         this.customerService.getCustomer().subscribe(
-            customers => this.customers = customers
+            customer => this.customer = customer
         );
 
         this.gameService.getGames().subscribe(

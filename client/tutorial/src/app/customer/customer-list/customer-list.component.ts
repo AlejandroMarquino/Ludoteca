@@ -3,14 +3,14 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Customer } from '../model/Customer';
-import { CustomersService } from '../customer.service';
+import { CustomerService } from '../customer.service';
 import { CustomerEditComponent } from '../customer-edit/customer-edit.component';
 import { DialogConfirmationComponent } from 'src/app/core/dialog-confirmation/dialog-confirmation.component';
 
 @Component({
-    selector: 'app-customers-list',
-    templateUrl: './customers-list.component.html',
-    styleUrls: ['./customers-list.component.scss']
+    selector: 'app-customer-list',
+    templateUrl: './customer-list.component.html',
+    styleUrls: ['./customer-list.component.scss']
 })
 
 export class CustomerListComponent implements OnInit {
@@ -19,13 +19,13 @@ export class CustomerListComponent implements OnInit {
     displayedColumns: string[] = ['id', 'name', 'action'];
 
     constructor(
-        private customersService: CustomersService,
+        private customerService: CustomerService,
         public dialog: MatDialog,
     ) { }
 
     ngOnInit(): void {
-        this.customersService.getCustomers().subscribe (
-            customers => this.dataSource.data = customers
+        this.customerService.getCustomer().subscribe (
+            customer => this.dataSource.data = customer
         );
     }
 
@@ -56,7 +56,7 @@ export class CustomerListComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                this.customersService.deleteCustomer(customer.id).subscribe(result => {
+                this.customerService.deleteCustomer(customer.id).subscribe(result => {
                     this.ngOnInit();
                 });
             }
