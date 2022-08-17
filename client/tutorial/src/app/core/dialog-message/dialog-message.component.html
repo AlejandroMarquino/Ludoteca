@@ -1,0 +1,9 @@
+<div class="container">
+    <mat-icon class="warnIcon">Ojo</mat-icon>
+    <h1>{{title}}</h1>
+    <div [innerHTML]="description" class="description"></div>
+
+    <div class="buttons">
+        <button mat-flat-button color="primary" (click)="onClose()">Aceptar</button>
+    </div>
+</div>

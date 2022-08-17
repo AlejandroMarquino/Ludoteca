@@ -3,28 +3,26 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Customer } from './model/Customer';
 
-
-
 @Injectable({
     providedIn: 'root'
 })
 
-export class CustomersService {
+export class CustomerService {
 
     constructor(
         private http : HttpClient
     ) { }
 
-    getCustomers(): Observable<Customer[]> {
+    getCustomer(): Observable<Customer[]> {
         return this.http.get<Customer[]>('http://localhost:8080/customer');
     }
 
-    saveCustomer(customers: Customer): Observable<Customer> {
+    saveCustomer(customer: Customer): Observable<Customer> {
         
-        let url = 'http://localhost:8080/customers';
-        if (customers.id != null) url += '/'+customers.id;
+        let url = 'http://localhost:8080/customer';
+        if (customer.id != null) url += '/'+customer.id;
 
-        return this.http.put<Customer>(url, customers);
+        return this.http.put<Customer>(url, customer);
     }
 
     deleteCustomer(idCustomer: number): Observable<any> {
