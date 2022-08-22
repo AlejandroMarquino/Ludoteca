@@ -39,8 +39,8 @@ CREATE TABLE LEASING  (
 	id BIGINT IDENTITY NOT NULL PRIMARY KEY,
 	game_id BIGINT NOT NULL,
 	customer_id BIGINT NOT NULL,
-	leasing_date DATE,
-	end_date DATE
+	leasingDate DATE,
+	endDate DATE
 );
 	
 ALTER TABLE LEASING ADD FOREIGN KEY (game_id) REFERENCES GAME(id);

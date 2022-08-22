@@ -44,17 +44,17 @@ public class LeasingServiceImpl implements LeasingService {
 
     // {@inheritDoc}
     @Override
-    public List<Leasing> findLeasingGame(Long game_id, Date leasing_date, Date end_date) {
+    public List<Leasing> findLeasingGame(Long game_id, Date leasingDate, Date endDate) {
 
-        return this.leasingRepository.findBorrowedGame(game_id, leasing_date, end_date);
+        return this.leasingRepository.findBorrowedGame(game_id, leasingDate, endDate);
 
     }
 
     // {@inheritDoc}
     @Override
-    public List<Leasing> findCustomerWithLeasing(Long customer_id, Date leasing_date, Date end_date) {
+    public List<Leasing> findCustomerWithLeasing(Long customer_id, Date leasingDate, Date endDate) {
 
-        return this.leasingRepository.findNumberOfLeasings(customer_id, leasing_date, end_date);
+        return this.leasingRepository.findNumberOfLeasings(customer_id, leasingDate, endDate);
     }
 
     // {@inheritDoc}
@@ -95,8 +95,8 @@ public class LeasingServiceImpl implements LeasingService {
 
         boolean result = false;
 
-        List<Leasing> leasings = (List<Leasing>) this.findLeasingGame(dto.getGame().getId(), dto.getLeasing_date(),
-                dto.getEnd_date());
+        List<Leasing> leasings = (List<Leasing>) this.findLeasingGame(dto.getGame().getId(), dto.getLeasingDate(),
+                dto.getEndDate());
 
         if (leasings.size() == 0)
             result = false;
@@ -111,8 +111,8 @@ public class LeasingServiceImpl implements LeasingService {
 
         boolean result = false;
 
-        List<Leasing> leasings = (List<Leasing>) this.findLeasingGame(dto.getCustomer().getId(), dto.getLeasing_date(),
-                dto.getEnd_date());
+        List<Leasing> leasings = (List<Leasing>) this.findLeasingGame(dto.getCustomer().getId(), dto.getLeasingDate(),
+                dto.getEndDate());
 
         if (leasings.size() == 2)
             result = true;

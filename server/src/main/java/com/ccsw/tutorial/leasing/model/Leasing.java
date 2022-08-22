@@ -38,11 +38,11 @@ public class Leasing {
     @JoinColumn(name = "game_id", nullable = false)
     private Game game;
 
-    @Column(name = "leasing_date", nullable = false)
-    private Date leasing_date;
+    @Column(name = "leasingDate", nullable = false)
+    private Date leasingDate;
 
-    @Column(name = "end_date", nullable = false)
-    private Date end_date;
+    @Column(name = "endDate", nullable = false)
+    private Date endDate;
 
     // @retun id
     public Long getId() {
@@ -75,23 +75,23 @@ public class Leasing {
     }
 
     // @return la fecha de prestamo
-    public Date getLeasing_date() {
-        return leasing_date;
+    public Date getleasingDate() {
+        return leasingDate;
     }
 
     // @param para setear la fecha del inicio del prestamo
-    public void setLeasing_date(Date leasing_date) {
-        this.leasing_date = leasing_date;
+    public void setleasingDate(Date leasingDate) {
+        this.leasingDate = leasingDate;
     }
 
     // @return la fecha de devolución
-    public Date getEnd_date() {
-        return end_date;
+    public Date getEndDate() {
+        return endDate;
     }
 
     // @param para setear la fecha de devolución
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
 }

@@ -17,8 +17,8 @@ public class LeasingDto {
 
     private CustomerDto customer;
 
-    private Date leasing_date;
-    private Date end_date;
+    private Date leasingDate;
+    private Date endDate;
 
     // @retun id
     public Long getId() {
@@ -50,24 +50,24 @@ public class LeasingDto {
         this.game = game;
     }
 
-    // @retun leasing_date
-    public Date getLeasing_date() {
-        return leasing_date;
+    // @retun leasingDate
+    public Date getLeasingDate() {
+        return leasingDate;
     }
 
-    // @param leasing_date new value of {@link #getLoan_date}
-    public void setLeasing_date(Date loan_date) {
-        this.leasing_date = loan_date;
+    // @param leasingDate new value of {@link #getLoan_date}
+    public void setLeasingDate(Date leasingDate) {
+        this.leasingDate = leasingDate;
     }
 
-    // @return end_date
-    public Date getEnd_date() {
-        return end_date;
+    // @return endDate
+    public Date getEndDate() {
+        return endDate;
     }
 
-    // @param end_date new value of {@link #getEnd_date}
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    // @param endDate new value of {@link #getEndDate}
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     private Pageable pageable;
