@@ -16,8 +16,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
   declarations: [
     CustomerListComponent,
     CustomerEditComponent
-  ],
-  
+  ], 
   imports: [
     CommonModule,
     MatTableModule,

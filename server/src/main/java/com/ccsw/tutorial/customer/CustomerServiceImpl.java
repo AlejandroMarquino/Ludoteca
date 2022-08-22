@@ -37,19 +37,19 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void save(Long id, CustomerDto dto) {
 
-        Customer categoria = null;
+        Customer customer = null;
 
         if (id == null)
-            categoria = new Customer();
+            customer = new Customer();
         else
-            categoria = this.get(id);
+            customer = this.get(id);
 
-        categoria.setName(dto.getName());
+        customer.setName(dto.getName());
 
-        this.customerRepository.save(categoria);
+        this.customerRepository.save(customer);
     }
 
-    // Método para borrar una Category * @param id
+    // Método para borrar un Customer * @param id
     @Override
     public void delete(Long id) {
 
