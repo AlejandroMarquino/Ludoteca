@@ -9,7 +9,7 @@ import { CategoryModule } from './category/category.module';
 import { AuthorModule } from './author/author.module';
 import { GameModule } from './game/game.module';
 import { CustomersModule } from './customer/customer.module';
-import { LeasingModule } from './leasing/leasing.module';
+
 
 
 @NgModule({
@@ -25,7 +25,6 @@ import { LeasingModule } from './leasing/leasing.module';
     AuthorModule,
     GameModule,
     CustomersModule,
-    LeasingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
