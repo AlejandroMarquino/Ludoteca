@@ -42,7 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (id == null)
             customer = new Customer();
         else
-            customer = this.get(id);
+            customer = this.customerRepository.findById(id).orElse(null);
 
         customer.setName(dto.getName());
 

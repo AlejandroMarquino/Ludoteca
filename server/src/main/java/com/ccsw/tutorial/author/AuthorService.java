@@ -1,5 +1,7 @@
 package com.ccsw.tutorial.author;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import com.ccsw.tutorial.author.model.Author;
@@ -24,5 +26,9 @@ public interface AuthorService {
 
     // método para eliminar un Author @param dto @return
     void delete(Long id);
+
+    // método para recuperar listado de autores @return, es lo que fallaba en el
+    // Controller.
+    List<Author> findAll();
 
 }

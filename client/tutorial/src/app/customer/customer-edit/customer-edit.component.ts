@@ -27,13 +27,13 @@ export class CustomerEditComponent implements OnInit {
             this.customer = new Customer();
         }
     }
-
+// guardar nuevo cliente o modificar uno
     onSave() {
         this.customerService.saveCustomer(this.customer).subscribe(result => {
             this.dialogRef.close();
         });
     }
-
+// cierra el cuadro de dialogo
     onClose() {
         this.dialogRef.close();
     }

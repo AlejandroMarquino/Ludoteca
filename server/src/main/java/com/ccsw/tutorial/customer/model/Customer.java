@@ -24,7 +24,7 @@ public class Customer {
 
     // Metodo @return para obtener el id del cliente
     public Long getId() {
-        return id; // this.id 08.11.22
+        return this.id; // this.id 08.11.22
     }
 
     // @param para setear el id del cliente

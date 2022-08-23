@@ -23,9 +23,9 @@ INSERT INTO CUSTOMER(id, name) VALUES (3, 'Alex Liam');
 INSERT INTO CUSTOMER(id, name) VALUES (4, 'Sandra Calvente');
 INSERT INTO CUSTOMER(id, name) VALUES (5, 'Engeru Herrera');
 
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (1, 1, 5, '2022-01-01', '2022-02-07');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (2, 6, 1, '2022-01-22', '2022-03-13');
+INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (1, 1, 5, '2022-01-01', '2022-01-13');
+INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (2, 6, 1, '2022-02-22', '2022-02-25');
 INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (3, 2, 4, '2022-12-05', '2022-12-10');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (4, 5, 2, '2022-07-25', '2022-08-11');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (5, 3, 3, '2022-05-29', '2022-11-03');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (6, 4, 2, '2022-03-16', '2022-10-01');
+INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (4, 5, 2, '2022-07-25', '2022-07-29');
+INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (5, 3, 3, '2022-05-29', '2022-06-03');
+INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (6, 4, 2, '2022-03-16', '2022-03-22');
