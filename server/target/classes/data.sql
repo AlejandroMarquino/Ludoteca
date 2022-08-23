@@ -1,7 +1,7 @@
-INSERT INTO CATEGORY(id, name) VALUES (1, 'Action');
-INSERT INTO CATEGORY(id, name) VALUES (2, 'Sandbox');
-INSERT INTO CATEGORY(id, name) VALUES (3, 'ARPG');
-INSERT INTO CATEGORY(id, name) VALUES (4, 'FPS');
+INSERT INTO CATEGORY(id, name) VALUES (1, 'Eurogames');
+INSERT INTO CATEGORY(id, name) VALUES (2, 'Ameritrash');
+INSERT INTO CATEGORY(id, name) VALUES (3, 'Familiar');
+INSERT INTO CATEGORY(id, name) VALUES (4, 'Comedi');
 
 INSERT INTO AUTHOR(id, name, nationality) VALUES (1, 'Alan R. Moon', 'US');
 INSERT INTO AUTHOR(id, name, nationality) VALUES (2, 'Vital Lacerda', 'PT');
