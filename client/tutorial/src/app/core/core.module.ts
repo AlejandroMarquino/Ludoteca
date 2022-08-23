@@ -9,8 +9,6 @@ import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogMessageComponent } from './dialog-message/dialog-message.component';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,

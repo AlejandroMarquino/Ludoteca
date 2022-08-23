@@ -18,7 +18,7 @@ export class LeasingService {
 
     // Obtiene los préstamos de juegos realizados. 
     
-    getLeasings(customerId? :number, gameId? : number, searchDate?: Date,  pageable? : Pageable) : Observable<LeasingPage> {
+    getLeasing(customerId? :number, gameId? : number, searchDate?: Date,  pageable? : Pageable) : Observable<LeasingPage> {
 
         return this.http.post<LeasingPage>(this.composeFindUrl(customerId, gameId, searchDate), {pageable:pageable});
     }

@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'games', component: GameListComponent},
   { path: '', redirectTo: '/games', pathMatch: 'full'},
   { path: 'customer', component: CustomerListComponent},
-  { path: 'leasings', component: LeasingListComponent },
+  { path: 'leasing', component: LeasingListComponent },
 
 ];
 

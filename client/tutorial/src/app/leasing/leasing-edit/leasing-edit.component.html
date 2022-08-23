@@ -33,7 +33,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Fecha de devolución</mat-label>
-                <input matInput [matDatepicker]="endDatePicker" name="end_date" [(ngModel)]="leasing.endDate" disabled>
+                <input matInput [matDatepicker]="endDatePicker" name="endDate" [(ngModel)]="leasing.endDate" disabled>
                 <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #endDatePicker disabled="false"></mat-datepicker>
             </mat-form-field>
