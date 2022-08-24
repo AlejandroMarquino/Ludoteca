@@ -29,7 +29,7 @@ public class LeasingServiceImpl implements LeasingService {
 
     @Autowired
     GameService gameService;
-    
+
     /**
      * {@inheritDoc}
      */
@@ -43,18 +43,18 @@ public class LeasingServiceImpl implements LeasingService {
      * {@inheritDoc}
      */
     @Override
-    public List<Leasing> findBorrowedGame(Long game_id, Date leasingDate, Date endDate) {
+    public List<Leasing> findBorrowedGame(Long game_id, Date leasing_date, Date end_date) {
 
-        return this.leasingRepository.findBorrowedGame(game_id, leasingDate, endDate);
+        return this.leasingRepository.findBorrowedGame(game_id, leasing_date, end_date);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public List<Leasing> findExistingLeasing(Long customer_id, Date leasingDate, Date endDate) {
+    public List<Leasing> findExistingLeasing(Long customer_id, Date leasing_date, Date end_date) {
 
-        return this.leasingRepository.findNumberOfLeasing(customer_id, leasingDate, endDate);
+        return this.leasingRepository.findNumberOfLeasing(customer_id, leasing_date, end_date);
     }
 
     /**
@@ -116,11 +116,9 @@ public class LeasingServiceImpl implements LeasingService {
 
         return result;
     }
-    
+
     public void delete(Long id) {
         this.leasingRepository.deleteById(id);
     }
 
-
-    
 }

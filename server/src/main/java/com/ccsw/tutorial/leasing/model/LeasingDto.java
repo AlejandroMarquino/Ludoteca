@@ -13,8 +13,8 @@ public class LeasingDto {
 
     private CustomerDto customer;
 
-    private Date leasingDate;
-    private Date endDate;
+    private Date leasing_date;
+    private Date end_date;
 
     /**
      * @return id
@@ -62,28 +62,28 @@ public class LeasingDto {
      * @return leasingDate
      */
     public Date getLeasingDate() {
-        return leasingDate;
+        return leasing_date;
     }
 
     /**
      * @param leasingDate new value of {@link #getLeasingDate}
      */
-    public void setLeasingDate(Date leasingDate) {
-        this.leasingDate = leasingDate;
+    public void setLeasingDate(Date leasing_date) {
+        this.leasing_date = leasing_date;
     }
 
     /**
      * @return endDate
      */
     public Date getEndDate() {
-        return endDate;
+        return end_date;
     }
 
     /**
      * @param enDate new value of {@link #getEnDate}
      */
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setEndDate(Date end_date) {
+        this.end_date = end_date;
     }
 
 }

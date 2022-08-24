@@ -37,11 +37,11 @@ public class Leasing {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @Column(name = "leasingDate", nullable = false)
-    private Date leasingDate;
+    @Column(name = "leasing_date", nullable = false)
+    private Date leasing_date;
 
-    @Column(name = "endDate", nullable = false)
-    private Date endDate;
+    @Column(name = "end_date", nullable = false)
+    private Date end_date;
 
     public Long getId() {
         return id;
@@ -68,19 +68,19 @@ public class Leasing {
     }
 
     public Date getLeasingDate() {
-        return leasingDate;
+        return leasing_date;
     }
 
-    public void setLeasingDate(Date leasingDate) {
-        this.leasingDate = leasingDate;
+    public void setLeasingDate(Date leasing_date) {
+        this.leasing_date = leasing_date;
     }
 
     public Date getEndDate() {
-        return endDate;
+        return end_date;
     }
 
-    public void EndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setEndDate(Date end_date) {
+        this.end_date = end_date;
     }
 
 }

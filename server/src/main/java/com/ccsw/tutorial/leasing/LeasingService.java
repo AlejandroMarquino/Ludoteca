@@ -17,11 +17,11 @@ public interface LeasingService {
 
     // comprobación de fechas de préstamo de un juego concreto
 
-    List<Leasing> findBorrowedGame(Long game_id, Date leasingDate, Date enDate);
+    List<Leasing> findBorrowedGame(Long game_id, Date leasing_date, Date end_date);
 
     // prestamos existentes de un cliente concreto entre dos fechas
 
-    List<Leasing> findExistingLeasing(Long customer_id, Date leasingDate, Date enDate);
+    List<Leasing> findExistingLeasing(Long customer_id, Date leasing_date, Date end_date);
 
     // crea o actualiza un préstamo
 

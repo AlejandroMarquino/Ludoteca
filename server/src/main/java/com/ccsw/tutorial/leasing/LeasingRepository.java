@@ -20,7 +20,7 @@ public interface LeasingRepository extends CrudRepository<Leasing, Long> {
      * @return
      */
 
-    @Query("select l from Leasing l where (:customer is null or l.customer.id = :customer) and (:game is null or l.game.id = :game) and (:date is null or :date between l.leasingDate and l.endDate)")
+    @Query("select l from Leasing l where (:customer is null or l.customer.id = :customer) and (:game is null or l.game.id = :game) and (:date is null or :date between l.leasing_date and l.end_date)")
     Page<Leasing> find(@Param("customer") Long customer, @Param("game") Long game, @Param("date") Date date,
             Pageable pageable);
 
@@ -35,9 +35,9 @@ public interface LeasingRepository extends CrudRepository<Leasing, Long> {
      *         leasingDate y endDate.
      */
 
-    @Query("select l from Leasing l where (l.game.id = :game) and ((l.leasingDate between :leasingDate and :endDate) or (l.endDate between :leasingDate and :endDate) or (:leasingDate between l.leasingDate and l.endDate) or (:endDate between l.leasingDate and l.endDate))")
-    List<Leasing> findBorrowedGame(@Param("game") Long game, @Param("leasingDate") Date leasingDate,
-            @Param("endDate") Date endDate);
+    @Query("select l from Leasing l where (l.game.id = :game) and ((l.leasing_date between :leasing_date and :end_date) or (l.end_date between :leasing_date and :end_date) or (:leasing_date between l.leasing_date and l.end_date) or (:end_date between l.leasing_date and l.end_date))")
+    List<Leasing> findBorrowedGame(@Param("game") Long game, @Param("leasing_date") Date leasing_date,
+            @Param("end_date") Date end_date);
 
     /**
      * Método para recuperar un listado filtrado por cliente, fecha de inicio y fin.
@@ -51,8 +51,8 @@ public interface LeasingRepository extends CrudRepository<Leasing, Long> {
      * 
      */
 
-    @Query("select l from Leasing l where (l.customer.id = :customer) and ((l.leasingDate between :leasingDate and :endDate) or (l.endDate between :leasingDate and :endDate) or (:leasingDate between l.leasingDate and l.endDate) or (:endDate between l.leasingDate and l.endDate))")
-    List<Leasing> findNumberOfLeasing(@Param("customer") Long customer, @Param("leasingDate") Date leasingDate,
-            @Param("endDate") Date endDate);
+    @Query("select l from Leasing l where (l.customer.id = :customer) and ((l.leasing_date between :leasing_date and :end_date) or (l.end_date between :leasing_date and :end_date) or (:leasing_date between l.leasing_date and l.end_date) or (:end_date between l.leasing_date and l.end_date))")
+    List<Leasing> findNumberOfLeasing(@Param("customer") Long customer, @Param("leasing_date") Date leasing_date,
+            @Param("end_date") Date end_date);
 
 }
