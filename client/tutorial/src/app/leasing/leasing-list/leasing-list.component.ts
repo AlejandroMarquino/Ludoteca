@@ -130,7 +130,7 @@ export class LeasingListComponent implements OnInit {
             pageable.pageNumber = event.pageIndex;
         }
 
-        this.leasingService.getLeasing(this.customerId, this.gameId, this.searchDate, pageable).subscribe(data => {
+        this.leasingService.getLeasings(this.customerId, this.gameId, this.searchDate, pageable).subscribe(data => {
             this.dataSource.data = data.content;
             this.pageNumber = data.pageable.pageNumber;
             this.pageSize = data.pageable.pageSize;

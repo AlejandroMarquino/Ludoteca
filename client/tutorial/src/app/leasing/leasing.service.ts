@@ -5,7 +5,6 @@ import { Pageable } from '../core/model/page/Pageable';
 import { Leasing } from './model/Leasing';
 import { LeasingPage } from './model/LeasingPage';
 
-
 @Injectable({
     providedIn: 'root'
 })
@@ -16,15 +15,13 @@ export class LeasingService {
         private http: HttpClient
     ) { }
 
-    // Obtiene los préstamos de juegos realizados. 
-    
-    getLeasing(customerId? :number, gameId? : number, searchDate?: Date,  pageable? : Pageable) : Observable<LeasingPage> {
+    // muestra los préstamos de manera paginada 
+    getLeasings(customerId? :number, gameId? : number, searchDate?: Date,  pageable? : Pageable) : Observable<LeasingPage> {
 
         return this.http.post<LeasingPage>(this.composeFindUrl(customerId, gameId, searchDate), {pageable:pageable});
     }
 
-    // Guarda un préstamo en la base de datos.
-  
+    // Guarda préstamo
     saveLeasing(leasing: Leasing): Observable<any> {
         
         let url = 'http://localhost:8080/leasing';
@@ -33,17 +30,13 @@ export class LeasingService {
         return this.http.put(url, leasing, {observe: 'body'});
     }
 
-    /** Borra un préstamo de la base de datos. */
+    // Borra un préstamo 
     deleteLeasing(idLeasing: number): Observable<any> {
         
         return this.http.delete('http://localhost:8080/leasing/'+idLeasing);
     }
 
-    /**
-     * Envía la URL compuesta al server para que devuelva los
-     * préstamos por cliente, juego o fecha especificados.
-     */
-    
+    // Muestra los préstamos según cliente, juego o fecha.  
     private composeFindUrl(customerId?: number, gameId?: number, searchDateBeforeConv?: Date) : string {
 
         let params = '';

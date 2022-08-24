@@ -18,14 +18,13 @@ INSERT INTO GAME(id, title, age, category_id, author_id) VALUES (5, 'Los viajes 
 INSERT INTO GAME(id, title, age, category_id, author_id) VALUES (6, 'Azul', '8', 3, 5);
 
 INSERT INTO CUSTOMER(id, name) VALUES (1, 'Adrián Perez');
-INSERT INTO CUSTOMER(id, name) VALUES (2, 'Keko Jones');
-INSERT INTO CUSTOMER(id, name) VALUES (3, 'Alex Liam');
-INSERT INTO CUSTOMER(id, name) VALUES (4, 'Sandra Calvente');
-INSERT INTO CUSTOMER(id, name) VALUES (5, 'Engeru Herrera');
+INSERT INTO CUSTOMER(id, name) VALUES (2, 'Alex Liam');
+INSERT INTO CUSTOMER(id, name) VALUES (3, 'Sandra Calvente');
+INSERT INTO CUSTOMER(id, name) VALUES (4, 'Engeru Herrera');
 
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (1, 1, 5, '2022-01-01', '2022-01-13');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (2, 6, 1, '2022-02-22', '2022-02-25');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (3, 2, 4, '2022-12-05', '2022-12-10');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (4, 5, 2, '2022-07-25', '2022-07-29');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (5, 3, 3, '2022-05-29', '2022-06-03');
-INSERT INTO LEASING(id, game_id, customer_id, leasingDate, endDate) VALUES (6, 4, 2, '2022-03-16', '2022-03-22');
+INSERT INTO LEASING(id, game_id, customer_id, leasing_date, end_date) VALUES (1, 1, 1, '2022-01-01', '2022-01-13');
+INSERT INTO LEASING(id, game_id, customer_id, leasing_date, end_date) VALUES (2, 6, 1, '2022-02-22', '2022-02-25');
+INSERT INTO LEASING(id, game_id, customer_id, leasing_date, end_date) VALUES (3, 2, 2, '2022-12-05', '2022-12-10');
+INSERT INTO LEASING(id, game_id, customer_id, leasing_date, end_date) VALUES (4, 5, 2, '2022-07-25', '2022-07-29');
+INSERT INTO LEASING(id, game_id, customer_id, leasing_date, end_date) VALUES (5, 3, 3, '2022-05-29', '2022-06-03');
+INSERT INTO LEASING(id, game_id, customer_id, leasing_date, end_date) VALUES (6, 4, 3, '2022-03-16', '2022-03-22');
