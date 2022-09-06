@@ -16,24 +16,27 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-// Método para recuperar todas las Category @return
-
-    @Override
-    public List<Customer> findAll() {
-
-        return (List<Customer>) this.customerRepository.findAll();
-    }
-
-    // Método para recuperar todas las ID @return
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Customer get(Long id) {
 
         return this.customerRepository.findById(id).orElse(null);
     }
 
-    // Método para crear o actualizar una Category @param dto @return
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<Customer> findAll() {
 
+        return (List<Customer>) this.customerRepository.findAll();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void save(Long id, CustomerDto dto) {
 
@@ -49,11 +52,13 @@ public class CustomerServiceImpl implements CustomerService {
         this.customerRepository.save(customer);
     }
 
-    // Método para borrar un Customer * @param id
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void delete(Long id) {
 
         this.customerRepository.deleteById(id);
-
     }
+
 }

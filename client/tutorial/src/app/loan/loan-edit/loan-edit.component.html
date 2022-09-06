@@ -4,12 +4,12 @@
     <form>
         <mat-form-field>
             <mat-label>Identificador</mat-label>
-            <input type="number" matInput placeholder="Identificador" [(ngModel)]="leasing.id" name="id" disabled>
+            <input type="number" matInput placeholder="Identificador" [(ngModel)]="loan.id" name="id" disabled>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Juego</mat-label>
-            <mat-select disableRipple [(ngModel)]="leasing.game" name="game" required>
+            <mat-select disableRipple [(ngModel)]="loan.game" name="game" required>
                 <mat-option *ngFor="let game of games" [value]="game">{{game.title}}</mat-option>
             </mat-select>
             <mat-error>Debe elegirse un juego</mat-error>
@@ -17,7 +17,7 @@
 
         <mat-form-field>
             <mat-label>Cliente</mat-label>
-            <mat-select disableRipple [(ngModel)]="leasing.customer" name="customer" required>
+            <mat-select disableRipple [(ngModel)]="loan.customer" name="customer" required>
                 <mat-option *ngFor="let customer of customer" [value]="customer">{{customer.name}}</mat-option>
             </mat-select>
             <mat-error>Debe elegirse un cliente</mat-error>
@@ -26,14 +26,14 @@
         <div class="dates">
             <mat-form-field appearance="fill">
                 <mat-label>Fecha de préstamo</mat-label>
-                <input matInput [matDatepicker]="leasingDatePicker" name="leasingDate" [(ngModel)]="leasing.leasingDate" disabled>
-                <mat-datepicker-toggle matSuffix [for]="leasingDatePicker"></mat-datepicker-toggle>
-                <mat-datepicker #leasingDatePicker disabled="false"></mat-datepicker>
+                <input matInput [matDatepicker]="loanDatePicker" name="loan_date" [(ngModel)]="loan.loan_date" disabled>
+                <mat-datepicker-toggle matSuffix [for]="loanDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #loanDatePicker disabled="false"></mat-datepicker>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Fecha de devolución</mat-label>
-                <input matInput [matDatepicker]="endDatePicker" name="endDate" [(ngModel)]="leasing.endDate" disabled>
+                <input matInput [matDatepicker]="endDatePicker" name="end_date" [(ngModel)]="loan.end_date" disabled>
                 <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #endDatePicker disabled="false"></mat-datepicker>
             </mat-form-field>

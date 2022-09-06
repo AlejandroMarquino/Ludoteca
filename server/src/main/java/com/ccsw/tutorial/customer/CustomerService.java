@@ -9,20 +9,35 @@ import com.ccsw.tutorial.customer.model.CustomerDto;
 
 public interface CustomerService {
 
-    // Método para mostrar todas las Category @return
-
-    List<Customer> findAll();
-
-    // Método para mostrar todos los datos por ID
-
+    /**
+     * Recupera un {@link com.ccsw.tutorial.author.model.Customer} a través de su ID
+     * 
+     * @param id
+     * @return
+     */
     Customer get(Long id);
 
-    // Método para crear o actualizar una Category @param dto @return
+    /**
+     * Método para recuperar todos los
+     * {@link com.ccsw.tutorial.customers.model.Customer }
+     * 
+     * @return
+     */
+    List<Customer> findAll();
 
+    /**
+     * Método para crear o actualizar un
+     * {@link com.ccsw.tutorial.customers.model.Customer }
+     * 
+     * @param dto
+     */
     void save(Long id, CustomerDto dto);
 
-    // Método para borrar una Category @param id
-
+    /**
+     * Método para borrar un {@link com.ccsw.tutorial.customers.model.Customer }
+     * 
+     * @param id
+     */
     void delete(Long id);
 
 }

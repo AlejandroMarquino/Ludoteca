@@ -1,11 +1,11 @@
-package com.ccsw.tutorial.leasing.model;
+package com.ccsw.tutorial.loan.model;
 
 import java.sql.Date;
 
 import com.ccsw.tutorial.customer.model.CustomerDto;
 import com.ccsw.tutorial.game.model.GameDto;
 
-public class LeasingDto {
+public class LoanDto {
 
     private Long id;
 
@@ -13,7 +13,7 @@ public class LeasingDto {
 
     private CustomerDto customer;
 
-    private Date leasing_date;
+    private Date loan_date;
     private Date end_date;
 
     /**
@@ -59,30 +59,30 @@ public class LeasingDto {
     }
 
     /**
-     * @return leasingDate
+     * @return loan_date
      */
-    public Date getLeasingDate() {
-        return leasing_date;
+    public Date getLoan_date() {
+        return loan_date;
     }
 
     /**
-     * @param leasingDate new value of {@link #getLeasingDate}
+     * @param loan_date new value of {@link #getLoan_date}
      */
-    public void setLeasingDate(Date leasing_date) {
-        this.leasing_date = leasing_date;
+    public void setLoan_date(Date loan_date) {
+        this.loan_date = loan_date;
     }
 
     /**
-     * @return endDate
+     * @return end_date
      */
-    public Date getEndDate() {
+    public Date getEnd_date() {
         return end_date;
     }
 
     /**
-     * @param enDate new value of {@link #getEnDate}
+     * @param end_date new value of {@link #getEnd_date}
      */
-    public void setEndDate(Date end_date) {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LeasingListComponent } from './leasing-list/leasing-list.component';
-import { LeasingEditComponent } from './leasing-edit/leasing-edit.component';
+import { LoanListComponent } from './loan-list/loan-list.component';
+import { LoanEditComponent } from './loan-edit/loan-edit.component';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,8 +16,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
-    LeasingListComponent,
-    LeasingEditComponent,
+    LoanListComponent,
+    LoanEditComponent
   ],
   imports: [
     CommonModule,
@@ -43,4 +43,4 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     }
   ]
 })
-export class LeasingModule { }
+export class LoanModule { }

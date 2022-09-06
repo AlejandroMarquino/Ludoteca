@@ -4,48 +4,48 @@ import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DialogConfirmationComponent } from 'src/app/core/dialog-confirmation/dialog-confirmation.component';
 import { Pageable } from 'src/app/core/model/page/Pageable';
-import { LeasingEditComponent } from '../leasing-edit/leasing-edit.component';
+import { LoanEditComponent } from '../loan-edit/loan-edit.component';
 import { CustomerService } from 'src/app/customer/customer.service';
 import { Customer } from 'src/app/customer/model/Customer';
-import { LeasingService } from '../leasing.service';
-import { Leasing } from '../model/Leasing';
+import { LoanService } from '../loan.service';
+import { Loan } from '../model/Loan';
 import { GameService } from 'src/app/game/game.service';
 import { Game } from 'src/app/game/model/Game';
 
 
 @Component({
-  selector: 'app-leasing-list',
-  templateUrl: './leasing-list.component.html',
-  styleUrls: ['./leasing-list.component.scss']
+  selector: 'app-loan-list',
+  templateUrl: './loan-list.component.html',
+  styleUrls: ['./loan-list.component.scss']
 })
 
-export class LeasingListComponent implements OnInit {
+export class LoanListComponent implements OnInit {
 
     pageNumber: number = 0;
     pageSize: number = 5;
     totalElements: number = 0;
 
-    customers : Customer[];
+    customer : Customer[];
     games : Game[];
     filterCustomer: Customer;
     filterGame: Game;
     customerId: number;
     gameId: number;
     searchDate: Date;
-    dataSource = new MatTableDataSource<Leasing>();
-    displayedColumns: string[] = ['id','game','customer','leasingDate','endDate','action'];
+    dataSource = new MatTableDataSource<Loan>();
+    displayedColumns: string[] = ['id','game','customer','loan_date','end_date','action'];
 
     constructor(
-        private leasingService: LeasingService,
+        private loanService: LoanService,
+        private customerService: CustomerService,
         private gameService : GameService,
-        private customeService: CustomerService,
         public dialog: MatDialog,
     ) { }
 
     ngOnInit(): void {
 
-        this.customeService.getCustomer().subscribe(
-            customers => this.customers = customers
+        this.customerService.getCustomer().subscribe(
+            customer => this.customer = customer
         );
 
         this.gameService.getGames().subscribe(
@@ -56,11 +56,12 @@ export class LeasingListComponent implements OnInit {
     }
 
     /**
-     * Permite crear un nuevo préstamo abriendo el cuadro de diálogo vacío.
+     * Permite crear un nuevo préstamo abriendo el cuadro
+     * de diálogo vacío.
      */
-    createLeasing() {
+    createLoan() {
         
-        const dialogRef = this.dialog.open(LeasingEditComponent, {
+        const dialogRef = this.dialog.open(LoanEditComponent, {
             data: {}
         });
 
@@ -70,15 +71,19 @@ export class LeasingListComponent implements OnInit {
         });
     }
 
-    /* Permite borrar un préstamo.*/
-    deleteLeasing(leasing: Leasing) {
+    /**
+     * Permite borrar un préstamo.
+     * 
+     * @param loan Préstamo a borrar.
+     */
+    deleteLoan(loan: Loan) {
         const dialogRef = this.dialog.open(DialogConfirmationComponent, {
             data: { title: "Eliminar préstamo", description: "Atención: si elimina el préstamo, se perderán sus datos.<br>¿Desea eliminar el préstamo?" }
         });
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                this.leasingService.deleteLeasing(leasing.id).subscribe(result => {
+                this.loanService.deleteLoan(loan.id).subscribe(result => {
                     this.ngOnInit();
                 });
             }
@@ -113,7 +118,11 @@ export class LeasingListComponent implements OnInit {
         this.loadPage();
     }
 
-    /* Carga los datos paginados en la página web. */
+    /**
+     * Carga los datos paginados en la página web.
+     * 
+     * @param event Evento desencadenante de la carga.
+     */
     loadPage(event?: PageEvent) {
 
         let pageable: Pageable = {
@@ -130,7 +139,7 @@ export class LeasingListComponent implements OnInit {
             pageable.pageNumber = event.pageIndex;
         }
 
-        this.leasingService.getLeasings(this.customerId, this.gameId, this.searchDate, pageable).subscribe(data => {
+        this.loanService.getLoans(this.customerId, this.gameId, this.searchDate, pageable).subscribe(data => {
             this.dataSource.data = data.content;
             this.pageNumber = data.pageable.pageNumber;
             this.pageSize = data.pageable.pageSize;

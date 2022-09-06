@@ -28,4 +28,4 @@ export class CustomerService {
     deleteCustomer(idCustomer: number): Observable<any> {
         return this.http.delete('http://localhost:8080/customer/'+idCustomer);
     }
-}
+} 

@@ -15,8 +15,9 @@ import com.ccsw.tutorial.game.model.Game;
 import com.ccsw.tutorial.game.model.GameDto;
 import com.devonfw.module.beanmapping.common.api.BeanMapper;
 
-//@author AMF - clase controlador 
-
+/**
+ * @author ccsw
+ */
 @RequestMapping(value = "/game")
 @RestController
 @CrossOrigin(origins = "*")

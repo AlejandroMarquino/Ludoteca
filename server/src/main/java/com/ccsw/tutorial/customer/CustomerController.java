@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ccsw.tutorial.customer.model.CustomerDto;
 import com.devonfw.module.beanmapping.common.api.BeanMapper;
 
-// @author AMF - clase controlador 
-
+/**
+ * @author ccsw
+ */
 @RequestMapping(value = "/customer")
 @RestController
 @CrossOrigin(origins = "*")
@@ -26,27 +27,39 @@ public class CustomerController {
     @Autowired
     BeanMapper beanMapper;
 
-    // Método para recuperar todas las {@link
-    // com.ccsw.tutorial.category.model.Customer} @return
-
+    /**
+     * Método para recuperar todos los
+     * {@link com.ccsw.tutorial.customer.model.Customer}
+     * 
+     * @return
+     */
     @RequestMapping(path = "", method = RequestMethod.GET)
     public List<CustomerDto> findAll() {
 
         return this.beanMapper.mapList(this.customerService.findAll(), CustomerDto.class);
     }
 
-    // Método para crear o actualizar una Category @param dto @return
-
+    /**
+     * Método para crear o actualizar un
+     * {@link com.ccsw.tutorial.customer.model.Customer}
+     * 
+     * @param dto
+     */
     @RequestMapping(path = { "", "/{id}" }, method = RequestMethod.PUT)
     public void save(@PathVariable(name = "id", required = false) Long id, @RequestBody CustomerDto dto) {
 
         this.customerService.save(id, dto);
     }
 
-    // Método para borrar una Category @param id
+    /**
+     * Método para borrar un {@link com.ccsw.tutorial.customer.model.Customer}
+     * 
+     * @param id
+     */
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) {
 
         this.customerService.delete(id);
     }
+
 }

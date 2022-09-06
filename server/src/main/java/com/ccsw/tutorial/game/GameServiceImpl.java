@@ -13,8 +13,9 @@ import com.ccsw.tutorial.category.CategoryService;
 import com.ccsw.tutorial.game.model.Game;
 import com.ccsw.tutorial.game.model.GameDto;
 
-//@author AMF
-
+/**
+ * @author ccsw
+ */
 @Service
 @Transactional
 public class GameServiceImpl implements GameService {
@@ -27,6 +28,15 @@ public class GameServiceImpl implements GameService {
 
     @Autowired
     CategoryService categoryService;
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Game get(Long id) {
+
+        return this.gameRepository.findById(id).orElse(null);
+    }
 
     /**
      * {@inheritDoc}
@@ -56,12 +66,6 @@ public class GameServiceImpl implements GameService {
         game.setCategory(categoryService.get(dto.getCategory().getId()));
 
         this.gameRepository.save(game);
-    }
-
-    @Override
-    public Game get(Long id) {
-        // TODO Auto-generated method stub
-        return null;
     }
 
 }

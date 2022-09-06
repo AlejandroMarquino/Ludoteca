@@ -1,10 +1,10 @@
 import { Customer } from "src/app/customer/model/Customer";
 import { Game } from "src/app/game/model/Game";
 
-export class Leasing {
+export class Loan {
     id: number;
     game: Game;
     customer: Customer;
-    leasingDate: Date;
-    endDate: Date;
+    loan_date: Date;
+    end_date: Date;
 }

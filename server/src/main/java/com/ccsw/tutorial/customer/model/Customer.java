@@ -13,32 +13,52 @@ import javax.persistence.Table;
 @Table(name = "Customer")
 public class Customer {
 
-    // Creamos el identificador del cliente.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    // Metodo @return para obtener el id del cliente
+    /**
+     * 
+     * Devuelve el id del cliente.
+     * 
+     * @return id
+     */
     public Long getId() {
-        return this.id; // this.id 08.11.22
+
+        return this.id;
     }
 
-    // @param para setear el id del cliente
+    /**
+     * Establece el id de un cliente.
+     * 
+     * @param id Long Identificador del cliente.
+     */
     public void setId(Long id) {
+
         this.id = id;
     }
 
-    // Método @retunr que devuelve nombre del cliente
+    /**
+     * Devuelve el nombre de un cliente.
+     * 
+     * @return name
+     */
     public String getName() {
+
         return this.name;
     }
 
-    // @param para setear el nombre del cliente
+    /**
+     * Establece el nombre de un cliente.
+     * 
+     * @param name String Nombre completo del cliente.
+     */
     public void setName(String name) {
+
         this.name = name;
     }
 

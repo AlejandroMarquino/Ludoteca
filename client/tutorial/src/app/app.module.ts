@@ -8,8 +8,8 @@ import { CoreModule } from './core/core.module';
 import { CategoryModule } from './category/category.module';
 import { AuthorModule } from './author/author.module';
 import { GameModule } from './game/game.module';
-import { CustomersModule } from './customer/customer.module';
-import { LeasingModule } from './leasing/leasing.module';
+import { CustomerModule } from './customer/customer.module';
+import { LoanModule } from './loan/loan.module';
 
 
 
@@ -25,8 +25,8 @@ import { LeasingModule } from './leasing/leasing.module';
     CategoryModule,
     AuthorModule,
     GameModule,
-    CustomersModule,
-    LeasingModule,
+    CustomerModule,
+    LoanModule
   ],
   providers: [],
   bootstrap: [AppComponent]

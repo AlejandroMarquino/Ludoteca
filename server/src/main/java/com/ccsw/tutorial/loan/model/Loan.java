@@ -1,4 +1,4 @@
-package com.ccsw.tutorial.leasing.model;
+package com.ccsw.tutorial.loan.model;
 
 import java.sql.Date;
 
@@ -14,15 +14,9 @@ import javax.persistence.Table;
 import com.ccsw.tutorial.customer.model.Customer;
 import com.ccsw.tutorial.game.model.Game;
 
-/**
- * Objeto Entity de la clase Leasing Métodos y atributos para Leasing
- * 
- * @author Alejandro Marquino Fernandez
- */
-
 @Entity
-@Table(name = "Leasing")
-public class Leasing {
+@Table(name = "Loan")
+public class Loan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +31,8 @@ public class Leasing {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @Column(name = "leasing_date", nullable = false)
-    private Date leasing_date;
+    @Column(name = "loan_date", nullable = false)
+    private Date loan_date;
 
     @Column(name = "end_date", nullable = false)
     private Date end_date;
@@ -67,19 +61,19 @@ public class Leasing {
         this.customer = customer;
     }
 
-    public Date getLeasingDate() {
-        return leasing_date;
+    public Date getLoan_date() {
+        return loan_date;
     }
 
-    public void setLeasingDate(Date leasing_date) {
-        this.leasing_date = leasing_date;
+    public void setLoan_date(Date loan_date) {
+        this.loan_date = loan_date;
     }
 
-    public Date getEndDate() {
+    public Date getEnd_date() {
         return end_date;
     }
 
-    public void setEndDate(Date end_date) {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
 

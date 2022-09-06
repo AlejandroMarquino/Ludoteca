@@ -1,8 +1,8 @@
 import { Pageable } from "src/app/core/model/page/Pageable";
-import { Leasing } from "./Leasing";
+import { Loan } from "./Loan";
 
-export class LeasingPage {
-    content: Leasing[];
+export class LoanPage {
+    content: Loan[];
     pageable: Pageable;
     totalElements: number;
 }

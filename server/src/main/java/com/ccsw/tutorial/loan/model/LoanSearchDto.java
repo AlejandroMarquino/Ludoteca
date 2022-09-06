@@ -1,10 +1,8 @@
-package com.ccsw.tutorial.leasing.model;
+package com.ccsw.tutorial.loan.model;
 
 import org.springframework.data.domain.Pageable;
 
-// ordena los datos en páginas / al igual que hice en AuthorSearchDTO 
-
-public class LeasingSearchDto {
+public class LoanSearchDto {
 
     private Pageable pageable;
 

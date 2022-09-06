@@ -1,6 +1,6 @@
 import { Component, Inject,  OnInit } from '@angular/core';
-import { Leasing } from '../model/leasing';
-import { LeasingService } from '../leasing.service';
+import { Loan } from '../model/Loan';
+import { LoanService } from '../loan.service';
 import { Game } from 'src/app/game/model/Game';
 import { GameService } from 'src/app/game/game.service';
 import { Customer } from 'src/app/customer/model/Customer';
@@ -12,22 +12,22 @@ import { DialogMessageComponent } from 'src/app/core/dialog-message/dialog-messa
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-leasing-edit',
-  templateUrl: './leasing-edit.component.html',
-  styleUrls: ['./leasing-edit.component.scss']
+  selector: 'app-loan-edit',
+  templateUrl: './loan-edit.component.html',
+  styleUrls: ['./loan-edit.component.scss']
 })
 
-export class LeasingEditComponent implements OnInit {
+export class LoanEditComponent implements OnInit {
     
-    leasing: Leasing;
+    loan: Loan;
     customer: Customer[];
     games: Game[];
 
     constructor(
-        public dialogRef: MatDialogRef<LeasingEditComponent>,
+        public dialogRef: MatDialogRef<LoanEditComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
         private gameService: GameService,
-        private leasingService: LeasingService,
+        private loanService: LoanService,
         private customerService: CustomerService,
         public dialog: MatDialog
         
@@ -35,7 +35,7 @@ export class LeasingEditComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.leasing = new Leasing();
+        this.loan = new Loan();
         
         this.customerService.getCustomer().subscribe(
             customer => this.customer = customer
@@ -61,30 +61,30 @@ export class LeasingEditComponent implements OnInit {
      */
     onSave() {
 
-        var last_date = Math.abs((this.leasing.leasingDate.getTime() - this.leasing.endDate.getTime())) / (1000 * 3600 * 24);
+        var final_date = Math.abs((this.loan.loan_date.getTime() - this.loan.end_date.getTime())) / (1000 * 3600 * 24);
 
-        if (this.leasing.endDate < this.leasing.leasingDate){
+        if (this.loan.end_date < this.loan.loan_date){
 
             const dialogRef = this.dialog.open(DialogMessageComponent, {
                 data: { title: "Error en la fecha de devolución",
-                description: "La fecha de devolución es anterior a la fecha inicial.<br>" 
-                + "Seleccione el mismo día o una fecha posterior."}
+                description: "La fecha de devolución seleccionada es anterior a la fecha inicial.<br>" 
+                + "Seleccione el mismo día o una fecha posterior para devolver el juego."}
             });
 
-            this.leasing.endDate = null;
+            this.loan.end_date = null;
         }
-        else if (last_date >= 14 ) {
+        else if (final_date >= 14 ) {
 
             const dialogRef = this.dialog.open(DialogMessageComponent, {
                 data: { title: "Exceso de días del préstamo",
-                description: "Los préstamos no pueden ser superiores a 14 días.<br>" 
+                description: "La fecha final excede en más de 14 días la fecha inicial.<br>" 
                 + "Seleccione una fecha de devolución inferior a 14 días."}
             });
 
-            this.leasing.endDate = null;
+            this.loan.end_date = null;
         }
         else {
-            this.leasingService.saveLeasing(this.leasing).subscribe(response => {
+            this.loanService.saveLoan(this.loan).subscribe(response => {
 
                 if (response == 100) {
                     const dialogRef = this.dialog.open(DialogMessageComponent, {
@@ -95,8 +95,8 @@ export class LeasingEditComponent implements OnInit {
                         }
                     });
 
-                    this.leasing.leasingDate = null;
-                    this.leasing.endDate = null;
+                    this.loan.loan_date = null;
+                    this.loan.end_date = null;
                 }
                 else if (response == 200) {
                     const dialogRef = this.dialog.open(DialogMessageComponent, {
@@ -107,8 +107,8 @@ export class LeasingEditComponent implements OnInit {
                         }
                     });
 
-                    this.leasing.leasingDate = null;
-                    this.leasing.endDate = null;
+                    this.loan.loan_date = null;
+                    this.loan.end_date = null;
 
                 }
                 else {
