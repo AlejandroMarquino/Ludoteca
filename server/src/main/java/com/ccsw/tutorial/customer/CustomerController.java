@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ccsw.tutorial.customer.model.CustomerDto;
 import com.devonfw.module.beanmapping.common.api.BeanMapper;
 
-/**
- * @author ccsw
- */
+//@author AMF
+
 @RequestMapping(value = "/customer")
 @RestController
 @CrossOrigin(origins = "*")

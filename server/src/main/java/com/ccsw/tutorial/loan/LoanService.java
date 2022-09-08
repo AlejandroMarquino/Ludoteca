@@ -15,45 +15,43 @@ public interface LoanService {
      * Método para recuperar un listado paginado de
      * {@link com.ccsw.tutorial.loan.model.Loan}
      * 
-     * @param dto Data Transfer Object de Loan.
-     * @return Listado paginado.
+     * @param dto
+     * @return listado paginado
      */
     Page<Loan> findPage(Long customerId, Long gameId, Date searchDate, LoanSearchDto dto);
 
     /**
-     * Comprueba las fechas de préstamo de un determinado juego y si coinciden con
-     * la fecha de préstamo y la fecha de devolución solicitadas por el cliente.
+     * fechas de un juego si ya está prestado dentro de unas fechas por un cliente
      * 
-     * @param game_id   Juego a consultar.
-     * @param loan_date Fecha de préstamo.
-     * @param end_date  Fecha de devolución.
-     * @return Listado de juegos que coinciden con esas fechas.
+     * @param game_id
+     * @param loan_date
+     * @param end_date
+     * @return Listado
      */
     List<Loan> findBorrowedGame(Long game_id, Date loan_date, Date end_date);
 
     /**
-     * Comprueba los préstamos vigentes que tiene un cliente entre las fechas
-     * solicitadas.
+     * muestra prestamos existentes
      * 
-     * @param customer_id Cliente a consultar.
-     * @param loan_date   Fecha de préstamo.
-     * @param end_date    Fecha de devolución del préstamo.
-     * @return Listado de préstamos.
+     * @param customer_id
+     * @param loan_date
+     * @param end_date
+     * @return Listado
      */
     List<Loan> findExistingLoans(Long customer_id, Date loan_date, Date end_date);
 
     /**
      * Método para crear o actualizar un {@link com.ccsw.tutorial.loan.model.Loan}
      * 
-     * @param id   Id del préstamo a crear o actualizar.
-     * @param data Objeto LoanDto.
+     * @param id
+     * @param data
      */
     int save(Long id, LoanDto data);
 
     /**
      * Método para borrar un {@link com.ccsw.tutorial.loan.model.Loan}
      * 
-     * @param id Id del préstamo a borrar.
+     * @param id Id
      */
     void delete(Long id);
 

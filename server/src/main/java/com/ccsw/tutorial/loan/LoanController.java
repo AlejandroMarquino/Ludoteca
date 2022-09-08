@@ -32,7 +32,7 @@ public class LoanController {
      * Método para recuperar un listado paginado de
      * {@link com.ccsw.tutorial.loan.model.Loan}
      * 
-     * @param dto Data Transfer Object de Loan.
+     * @param dto
      * @return Listado paginado.
      */
     @RequestMapping(path = "", method = RequestMethod.POST)
@@ -46,11 +46,9 @@ public class LoanController {
     /**
      * Método para crear o actualizar un {@link com.ccsw.tutorial.loan.model.Loan}
      * 
-     * @param id   Id del préstamo a crear o actualizar.
-     * @param data Objeto LoanDto.
-     * @return int. 0 si se ha guardado correctamente. 100 si el juego está
-     *         prestado. 200 si el cliente tiene dos o más juegos prestados en un
-     *         determinado día.
+     * @param id
+     * @param data
+     * @return int.
      */
     @ResponseBody
     @RequestMapping(path = { "", "/{id}" }, method = RequestMethod.PUT)
@@ -62,7 +60,7 @@ public class LoanController {
     /**
      * Método para borrar un {@link com.ccsw.tutorial.loan.model.Loan}
      * 
-     * @param id Id del préstamo a borrar.
+     * @param id
      */
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) {

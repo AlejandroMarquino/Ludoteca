@@ -25,15 +25,13 @@ public interface LoanRepository extends CrudRepository<Loan, Long> {
             Pageable pageable);
 
     /**
-     * Método para recuperar un listado filtado por juego y por fechas de inicio y
-     * fin.
+     * Método para recuperar un listado filtado por juego y fechas
      * 
-     * @param game      Juego a buscar
-     * @param loan_date Fecha de inicio del préstamo
-     * @param end_date  Fecha de devolución del préstamo
+     * @param game
+     * @param loan_date
+     * @param end_date
      * 
-     * @return Devuelve si un juego ha sido prestado en el rango de fechas dado por
-     *         loan_date y end_date.
+     * @return si un juego está prestado.
      */
     @Query("select l from Loan l where (l.game.id = :game) and ((l.loan_date between :loan_date and :end_date) or (l.end_date between :loan_date and :end_date) or (:loan_date between l.loan_date and l.end_date) or (:end_date between l.loan_date and l.end_date))")
     List<Loan> findBorrowedGame(@Param("game") Long game, @Param("loan_date") Date loan_date,
@@ -41,15 +39,12 @@ public interface LoanRepository extends CrudRepository<Loan, Long> {
 
     /**
      * Método para recuperar un listado filtrado por cliente, fecha de inicio y fin.
-     * Permite determinar si UN cliente tiene DOS o más juegos prestados en el rango
-     * de fechas indicado.
+     *
+     * @param customer
+     * @param loan_date
+     * @param end_date
      * 
-     * @param customer  Cliente a consultar
-     * @param loan_date Fecha de inicio de préstamo
-     * @param end_date  Fecha de devolución del préstamo
-     * 
-     * @return Devuelve si un cliente tiene un préstamo pendiente entre las fechas
-     *         indicadas como parámetros loan_date y end_date.
+     * @return Prestamo pendiente entre fechas.
      */
     @Query("select l from Loan l where (l.customer.id = :customer) and ((l.loan_date between :loan_date and :end_date) or (l.end_date between :loan_date and :end_date) or (:loan_date between l.loan_date and l.end_date) or (:end_date between l.loan_date and l.end_date))")
     List<Loan> findNumberOfLoans(@Param("customer") Long customer, @Param("loan_date") Date loan_date,

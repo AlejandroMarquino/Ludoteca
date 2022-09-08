@@ -65,9 +65,9 @@ public class LoanServiceImpl implements LoanService {
 
         Loan loan = null;
 
-        if (gameIsBorrowed(data) == true) {
+        if (gameBorrowed(data) == true) {
             return 100;
-        } else if (customerIsTwoOrMoreLoans(data) == true) {
+        } else if (customerWithLoans(data) == true) {
             return 200;
         } else {
             loan = new Loan();
@@ -96,11 +96,11 @@ public class LoanServiceImpl implements LoanService {
     /**
      * Comprueba si el juego ya ha sido prestado.
      * 
-     * @param dto Préstamo que se quiere validar antes de guardarlo.
+     * @param dto
      * 
-     * @return Boolean. True si el juego ya ha sido prestado.
+     * @return Boolean.
      */
-    private boolean gameIsBorrowed(LoanDto dto) {
+    private boolean gameBorrowed(LoanDto dto) {
 
         boolean result = false;
 
@@ -118,11 +118,11 @@ public class LoanServiceImpl implements LoanService {
     /**
      * Comprueba si un cliente tiene dos o más préstamos en una misma fecha.
      * 
-     * @param dto Préstamo que se desea validar antes de guardar.
+     * @param dto .
      * 
-     * @return Boolean. True si un cliente tiene dos o más préstamos.
+     * @return Boolean.
      */
-    private boolean customerIsTwoOrMoreLoans(LoanDto dto) {
+    private boolean customerWithLoans(LoanDto dto) {
 
         boolean result = false;
 
