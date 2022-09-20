@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ccsw.tutorial.customer.model.CustomerDto;
-import com.devonfw.module.beanmapping.common.api.BeanMapper;
 import com.ccsw.tutorial.exception.CurrentlyInUseException;
+import com.devonfw.module.beanmapping.common.api.BeanMapper;
 
 //@author AMF
 
@@ -46,7 +46,8 @@ public class CustomerController {
      * @param dto
      */
     @RequestMapping(path = { "", "/{id}" }, method = RequestMethod.PUT)
-    public void save(@PathVariable(name = "id", required = false) Long id, @RequestBody CustomerDto dto) throws CurrentlyInUseException {
+    public void save(@PathVariable(name = "id", required = false) Long id, @RequestBody CustomerDto dto)
+            throws CurrentlyInUseException {
 
         this.customerService.save(id, dto);
     }
@@ -62,21 +63,4 @@ public class CustomerController {
         this.customerService.delete(id);
     }
 
-    /**
-     * Método para atrapar la excepción cuando se introduce un usuario ya existente
-     * @param id
-     */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
